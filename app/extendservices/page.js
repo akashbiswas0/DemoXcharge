@@ -2,8 +2,10 @@
 
 import Navbar from '@/components/Navbar'
 import { useState } from 'react'
+import { useSearchParams, useRouter } from 'next/navigation'
 
 export default function Component() {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     photo: null,
     location: '',
@@ -33,6 +35,10 @@ export default function Component() {
     e.preventDefault()
     console.log('Form submitted:', formData)
     // Here you would typically send the data to your backend
+  }
+
+  const handleExtend = () => {
+    router.push('/services-joined-success')
   }
 
   return (
@@ -137,6 +143,7 @@ export default function Component() {
 
         <button
           type="submit"
+          onClick={handleExtend}
           className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200"
         >
           Join Network

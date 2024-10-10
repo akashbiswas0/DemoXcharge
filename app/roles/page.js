@@ -12,14 +12,14 @@ export default function Roles() {
   const boxes = [
     { 
       id: 1, 
-      title: 'Use X-Charge Network', 
+      title: 'use promo pay', 
       content: 'Leverage our advanced network for seamless transactions',
       icon: (
         <svg className="w-12 h-12 mb-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M13 10V3L4 14H11V21L20 10H13Z" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       ),
-      link: '/use'
+      link: '/usenetwork'
     },
     { 
       id: 2, 
@@ -31,18 +31,18 @@ export default function Roles() {
           <path d="M9 7L15 12L9 17" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       ),
-      link: '/advertisement'
+      link: '/advertisementsetup'
     },
     { 
       id: 3, 
-      title: 'Extend X-Charge Network', 
+      title: 'Extend my service network', 
       content: 'Contribute to and expand our growing ecosystem',
       icon: (
         <svg className="w-12 h-12 mb-4" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M17 8L21 12M21 12L17 16M21 12H3" stroke="#3b82f6" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
         </svg>
       ),
-      link: '/extend'
+      link: '/extendservices'
     }
   ]
 

@@ -4,8 +4,11 @@
 
 import { useState } from 'react'
 import Navbar from "@/components/Navbar";
+import { Router } from 'lucide-react';
+import { useSearchParams, useRouter } from 'next/navigation'
 
 export default function Advertisement() {
+  const router = useRouter()
   const [formData, setFormData] = useState({
     video: '',
     rewardPerUser: '',
@@ -28,6 +31,9 @@ export default function Advertisement() {
     e.preventDefault()
     console.log('Form submitted:', formData)
     // Here you would typically send the data to your backend
+  }
+  const handleSetup = () => {
+    router.push('/advertisement-setup-success')
   }
 
   return (
@@ -151,6 +157,7 @@ export default function Advertisement() {
 
           <button
             type="submit"
+            onClick={handleSetup}
             className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 transition duration-200"
           >
             Lock in Tokens

@@ -3,17 +3,17 @@
 import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import Script from 'next/script'
+import { useRouter } from 'next/navigation'
 
 export default function Component() {
-  const [originalPrice, setOriginalPrice] = useState(80) // This should be passed from the previous page
-  const [showPrize, setShowPrize] = useState(false)
-  const [prize, setPrize] = useState(60) // This should be passed from the previous page
+  const router = useRouter()
+  const [originalPrice] = useState(80)
   const [videoLoaded, setVideoLoaded] = useState(false)
-  const [isPlaying, setIsPlaying] = useState(false) // Track if the video is playing
+  const [isPlaying, setIsPlaying] = useState(false)
   const playerRef = useRef(null)
 
   const videoIds = [
-    'jrd-acToTsE', // Replace with your actual YouTube video IDs
+    'jrd-acToTsE',
     'ZvzKuqSDyG8',
     'K87aFjB7Ff0'
   ]
@@ -44,7 +44,7 @@ export default function Component() {
       },
       events: {
         onReady: onPlayerReady,
-        onStateChange: onPlayerStateChange, // Add this to track state changes
+        onStateChange: onPlayerStateChange,
       }
     })
   }
@@ -54,17 +54,17 @@ export default function Component() {
     event.target.playVideo()
   }
 
-  // Track when the video is playing or paused
   const onPlayerStateChange = (event) => {
     if (event.data === window.YT.PlayerState.PLAYING) {
-      setIsPlaying(true) // Video is playing
+      setIsPlaying(true)
       setTimeout(() => {
         event.target.stopVideo()
-        setShowPrize(true) // Show prize when video stops after 12 seconds
-        setIsPlaying(false) // Stop showing the playing state
+        setIsPlaying(false)
+        // Redirect to the next page with the discounted price as a query parameter
+        router.push(`/verification`)
       }, 12000)
     } else {
-      setIsPlaying(false) // Video is not playing (paused, ended, etc.)
+      setIsPlaying(false)
     }
   }
 
@@ -95,21 +95,6 @@ export default function Component() {
         )}
       </motion.div>
 
-      {/* Conditionally show the discounted price only if the video is playing or it has finished */}
-      {showPrize && (
-        <motion.div
-          className="mt-8 p-6 bg-gray-800 rounded-lg shadow-lg text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-        >
-          <h3 className="text-2xl font-bold text-white mb-4">Congratulations!</h3>
-          <p className="text-xl text-green-400">Now you've to pay :</p>
-          <p className="text-4xl font-bold text-green-400 mt-2">${prize}</p>
-        </motion.div>
-      )}
-
-      {/* If the video is playing, show this message */}
       {isPlaying && (
         <motion.div
           className="mt-8 p-6 bg-gray-800 rounded-lg shadow-lg text-center"
@@ -118,7 +103,7 @@ export default function Component() {
           transition={{ duration: 0.5 }}
         >
           <p className="text-2xl font-bold text-green-400">
-            The video is playing! Watch till the end to get the prize!
+            Watch the video to unlock your special discount!
           </p>
         </motion.div>
       )}

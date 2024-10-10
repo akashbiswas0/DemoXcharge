@@ -2,7 +2,7 @@ export default function Benefits() {
     return (
       <div className="bg-gray-900 text-white py-20 mx-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-4xl font-bold text-center mb-12">Benefits of xcharge</h2>
+          <h2 className="text-4xl font-bold text-center -mt-8 mb-12">Benefits of xcharge</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Interoperability */}

@@ -4,8 +4,8 @@ export default function Component() {
         {/* Background Grid */}
         
         
-        <div className="container mx-auto px-4 relative z-10">
-          <h2 className="text-4xl font-bold text-center mb-16">gain energy</h2>
+        <div className="container mx-auto px-4  relative z-10">
+          <h2 className="text-5xl font-bold -mt-10 text-center mb-16">gain energy</h2>
           
           <div className="flex flex-col items-center justify-center space-y-12 md:flex-row md:space-y-0 md:space-x-8">
             {/* Boost Your Yield */}

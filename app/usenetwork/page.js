@@ -60,7 +60,7 @@ export default function Use() {
 
   return (
     <div className='bg-gray-900'>
-        <Navbar />
+        
     <div className="bg-gray-900 min-h-screen flex items-center justify-center p-4">
       <div className="w-full -mt-12 max-w-md">
         <h2 className="text-5xl font-bold text-white mb-6 text-center">QR Code Scanner</h2>
